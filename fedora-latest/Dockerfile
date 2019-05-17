@@ -6,7 +6,8 @@ RUN dnf -y update \
     && dnf -y install systemd python python-devel bash iproute net-tools sudo deltarpm initscripts ansible which git selinux-policy libselinux-python policycoreutils-python \
     && dnf clean all
 
-RUN cd "/lib/systemd/system/sysinit.target.wants/";" for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done
+RUN cd "/lib/systemd/system/sysinit.target.wants/"; \
+    for i in *; do [ $i = systemd-tmpfiles-setup.service ] || rm -f "$i"; done
 
 RUN rm -f /lib/systemd/system/multi-user.target.wants/* \
     /etc/systemd/system/*.wants/* \
