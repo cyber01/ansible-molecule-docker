@@ -14,7 +14,7 @@ Every image comes with packages:
 - net-tools
 - sudo
 - deltarpm (only centos 7 and fedora)
-- epel-release (only centos 7 and fedora)
+- epel-release (only centos 7)
 - initscripts (only centos 7 and fedora)
 - ansible 
 - which
