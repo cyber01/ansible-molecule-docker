@@ -24,6 +24,8 @@ RUN sed -i -e 's/^\(Defaults\s*requiretty\)/#--- \1/'  /etc/sudoers
 
 # Install Ansible inventory file.
 RUN echo -e '[local]\nlocalhost ansible_connection=local' > /etc/ansible/hosts
+RUN echo -e 'no_log = False' > /etc/ansible/ansible.cfg
+RUN echo -e 'log_path = /var/log/ansible.log' > /etc/ansible/ansible.cfg
 
 ENV init /lib/systemd/systemd
 VOLUME [ "/sys/fs/cgroup" ]
